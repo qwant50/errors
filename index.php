@@ -9,18 +9,36 @@ error_reporting(E_ALL);
 ini_set('display_errors', 'On');
 
 $old_error_handler = set_error_handler("myErrorHandler", E_ALL);
+register_shutdown_function('myShutdown');
 
 function err(){
 
     echo $r;
     return (50 / $i);
+
 };
 
 echo err();
 echo "text";
 
+function myShutdown()
+{
+
+    $out = PHP_EOL. str_pad("[Error data]:",15). date("Y-m-d H:i:s") .PHP_EOL;
+
+    ob_start();
+    debug_print_backtrace(10);
+    $out .= ob_get_contents();
+    ob_end_clean();
+
+    $ap = dirname ( __FILE__ );
+    file_put_contents($ap.'/fatal.log', $out, FILE_APPEND);
+
+};
+
 function myErrorHandler($errno, $errstr, $errfile, $errline){
 
+    $out ='';
     switch ($errno) {
 
         case E_ERROR:
@@ -61,6 +79,8 @@ function myErrorHandler($errno, $errstr, $errfile, $errline){
     $out .= ob_get_contents();
     ob_end_clean();
 
-    file_put_contents('error.log', $out, FILE_APPEND);
+    $ap = dirname ( __FILE__ );
+    file_put_contents($ap.'/error.log', $out, FILE_APPEND);
 
 };
+
