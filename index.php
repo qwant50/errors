@@ -13,9 +13,18 @@ register_shutdown_function('myShutdown');
 
 function err(){
 
+try {
     echo $r;
+    throw new Exception('Something wrong.');
     return (50 / $i);
 
+}
+catch (\Exception $e){
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
+}
+finally{
+        echo "Always executing!!!";
+    }
 };
 
 echo err();
@@ -23,18 +32,22 @@ echo "text";
 
 function myShutdown()
 {
+    $error = error_get_last();
+    if ($error['type'] === E_ERROR) {
 
-    $out = PHP_EOL. str_pad("[Error data]:",15). date("Y-m-d H:i:s") .PHP_EOL;
+        $out = PHP_EOL. str_pad("[Error data]:",15). date("Y-m-d H:i:s") .PHP_EOL;
 
-    ob_start();
-    debug_print_backtrace(10);
-    $out .= ob_get_contents();
-    ob_end_clean();
+        ob_start();
+        debug_print_backtrace(10);
+        $out .= ob_get_contents();
+        ob_end_clean();
 
-    $ap = dirname ( __FILE__ );
-    file_put_contents($ap.'/fatal.log', $out, FILE_APPEND);
-
+        $ap = dirname ( __FILE__ );
+        file_put_contents($ap.'/fatal.log', $out, FILE_APPEND);
+    }
 };
+
+
 
 function myErrorHandler($errno, $errstr, $errfile, $errline){
 

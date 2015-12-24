@@ -1,0 +1,8 @@
+
+[Error data]:  2015-12-24 18:32:40
+[Error type]:  NOTICE
+[Error]:       Undefined variable: r
+[Error file]:  /home/phpstudent/server/httpd/errors/index.php
+[Error line]:  17
+#0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:17]
+#1  err() called at [/home/phpstudent/server/httpd/errors/index.php:30]
