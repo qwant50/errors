@@ -6,3 +6,51 @@
 [Error line]:  17
 #0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:17]
 #1  err() called at [/home/phpstudent/server/httpd/errors/index.php:30]
+
+[Error data]:  2015-12-25 14:35:44
+[Error type]:  NOTICE
+[Error]:       Undefined variable: r
+[Error file]:  /home/phpstudent/server/httpd/errors/index.php
+[Error line]:  17
+#0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:17]
+#1  err() called at [/home/phpstudent/server/httpd/errors/index.php:30]
+
+[Error data]:  2015-12-25 14:36:43
+[Error type]:  NOTICE
+[Error]:       Undefined variable: r
+[Error file]:  /home/phpstudent/server/httpd/errors/index.php
+[Error line]:  17
+#0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:17]
+#1  err() called at [/home/phpstudent/server/httpd/errors/index.php:30]
+
+[Error data]:  2015-12-25 14:41:57
+[Error type]:  NOTICE
+[Error]:       Undefined variable: r
+[Error file]:  /home/phpstudent/server/httpd/errors/index.php
+[Error line]:  17
+#0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:17]
+#1  err() called at [/home/phpstudent/server/httpd/errors/index.php:31]
+
+[Error data]:  2015-12-25 14:47:06
+[Error type]:  NOTICE
+[Error]:       Undefined variable: r
+[Error file]:  /home/phpstudent/server/httpd/errors/index.php
+[Error line]:  17
+#0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:17]
+#1  err() called at [/home/phpstudent/server/httpd/errors/index.php:43]
+
+[Error data]:  2015-12-25 14:47:47
+[Error type]:  NOTICE
+[Error]:       Undefined variable: r
+[Error file]:  /home/phpstudent/server/httpd/errors/index.php
+[Error line]:  30
+#0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:30]
+#1  err() called at [/home/phpstudent/server/httpd/errors/index.php:45]
+
+[Error data]:  2015-12-25 14:49:08
+[Error type]:  NOTICE
+[Error]:       Undefined variable: r
+[Error file]:  /home/phpstudent/server/httpd/errors/index.php
+[Error line]:  30
+#0  myErrorHandler() called at [/home/phpstudent/server/httpd/errors/index.php:30]
+#1  err() called at [/home/phpstudent/server/httpd/errors/index.php:45]

@@ -11,21 +11,36 @@ ini_set('display_errors', 'On');
 $old_error_handler = set_error_handler("myErrorHandler", E_ALL);
 register_shutdown_function('myShutdown');
 
+class myException extends Exception {
+
+
+    public function errorMessage(){
+
+        $errorMsg = 'Auh!! '.$this->getMessage().', on line '.
+            $this->getLine().' in '.$this->getFile().', is invalid.';
+
+        return $errorMsg;
+    }
+
+}
+
 function err(){
 
 try {
     echo $r;
-    throw new Exception('Something wrong.');
+    throw new myException('Something wrong.');
     return (50 / $i);
 
 }
-catch (\Exception $e){
-    echo 'Caught exception: ',  $e->getMessage(), "\n";
+catch (myException $e){
+    echo 'Caught exception: ',  $e->errorMessage(), "\n";
 }
 finally{
         echo "Always executing!!!";
     }
 };
+
+
 
 echo err();
 echo "text";
@@ -42,8 +57,8 @@ function myShutdown()
         $out .= ob_get_contents();
         ob_end_clean();
 
-        $ap = dirname ( __FILE__ );
-        file_put_contents($ap.'/fatal.log', $out, FILE_APPEND);
+        $ap = dirname ( __FILE__ ).DIRECTORY_SEPARATOR;
+        file_put_contents($ap.'fatal.log', $out, FILE_APPEND);
     }
 };
 
@@ -92,8 +107,8 @@ function myErrorHandler($errno, $errstr, $errfile, $errline){
     $out .= ob_get_contents();
     ob_end_clean();
 
-    $ap = dirname ( __FILE__ );
-    file_put_contents($ap.'/error.log', $out, FILE_APPEND);
+    $ap = dirname ( __FILE__ ).DIRECTORY_SEPARATOR;
+    file_put_contents($ap.'error.log', $out, FILE_APPEND);
 
 };
 
